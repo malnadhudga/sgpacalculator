@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SGPA CALCULATOR</title>
+
+
+    <style>
+        html {
+            font-size: 62.5%;
+        }
+
+        .calc_heading {
+            text-align: center;
+            padding-top: 2.3rem;
+            padding-bottom: 2.3rem;
+            background-color: rgb(228, 156, 46);
+            color: #fff;
+            font-size: 5rem;
+            margin-top: -1rem;
+            margin-right: -0.5%;
+            margin-left: -.8rem;
+        }
+
+        #id12 {
+            font-size: 3.5rem;
+            margin-left: 31.3rem;
+            margin-top: 4.2rem;
+            margin-bottom: -5rem;
+            color: maroon
+        }
+
+        #id11 {
+            margin-left: 27rem;
+            margin-top: 6rem;
+            font-size: 2.5rem;
+            width: max-content;
+        }
+
+        #id3,
+        #id7 {
+            margin-left: .94rem;
+        }
+
+        #id5 {
+            margin-left: .7rem;
+        }
+
+        #cy1 {
+            font-size: 3.3rem;
+            margin-left: 103rem;
+            margin-top: 2.1rem;
+            margin-bottom: -5rem;
+            visibility: hidden;
+            color: maroon;
+            margin-right: -34rem;
+
+        }
+
+        #id16 {
+            margin-left: 34rem;
+            font-size: 2.5rem;
+            visibility: hidden;
+        }
+
+        #b1 {
+            cursor: pointer;
+            border-radius: .8rem;
+            padding-top: .3rem;
+            padding-bottom: .3rem;
+            font-size: 1.6rem;
+        }
+
+        #tb1 {
+            visibility: hidden;
+            padding: 2.5rem;
+            font-size: x-large;
+        }
+
+        body {
+
+            background-image: linear-gradient(rgb(255, 255, 255, .75), rgba(255, 255, 255, 0.75)), url("img.jpg");
+            background-size: cover;
+            font-weight: bold;
+            width: 99%;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+        }
+
+        th,
+        td {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-color: black;
+            border-style: solid;
+            border-radius: 1rem;
+        }
+
+        #cr1 {
+            visibility: hidden;
+        }
+
+        #sub1,
+        #sub2,
+        #sub3,
+        #sub4,
+        #sub5,
+        #sub6,
+        #sub7,
+        #sub8,
+        #sub9 {
+            padding-top: .7rem;
+            padding-bottom: .6rem;
+        }
+
+        #b2 {
+            visibility: hidden;
+            margin-left: 44rem;
+            margin-top: 1rem;
+            padding-right: 1.3rem;
+            padding-left: 1.3rem;
+            padding-top: .3rem;
+            padding-bottom: .3rem;
+            border-radius: .6rem;
+            cursor: pointer;
+            color: white;
+            background-color: rgb(112, 53, 168);
+        }
+
+        #b2:hover {
+            background-color:lavenderblush;
+            color: #000;
+        }
+
+        #b1 {
+            margin-top: 1.5rem;
+            margin-left: 16rem;
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+            cursor: pointer;
+            color: white;
+            background-color: rgb(220, 105, 34);
+        }
+
+        #b1:hover {
+           background-color:lightblue;
+           color: black;
+        }
+
+        .img {
+            position: absolute;
+            z-index: -1;
+            margin-left: -.8rem;
+            opacity: 0.2;
+            width: 100%;
+            margin-top: -5rem;
+        }
+
+        .int1,
+        .ext1,
+        .credit1 {
+            margin-left: 4rem;
+            text-align: center;
+            border-radius: 6rem;
+        }
+
+        #subhead {
+            padding-right: 5.9rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            text-align: center;
+            color: #fff;
+            background-color: navy;
+        }
+
+        #intmark1,
+        #extmark1,
+        #cr1 {
+            background-color: navy;
+            color: #fff;
+        }
+
+        #submit1 {
+            visibility: hidden;
+            margin-left: 26.7rem;
+            font-size: x-large;
+            border-radius: .6rem;
+            color: azure;
+            background-color: green;
+            cursor: pointer;
+        }
+
+        #submit1:focus,
+        #reset:focus,
+        #b1:focus,
+        #b2:focus {
+            background-color: thistle;
+        }
+
+        #result1,
+        #sgpa2 {
+            padding-right: 45rem;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 5rem;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+        }
+
+        #tb2 {
+            margin-left: 16rem;
+            margin-top: 8.5rem;
+            margin-bottom: 8rem;
+            visibility: hidden;
+            color: white;
+            font-weight: bolder;
+        }
+
+        #reset {
+            visibility: hidden;
+            margin-left: 31rem;
+            font-size: x-large;
+            border-radius: .6rem;
+            background-color: blueviolet;
+            color: aliceblue;
+            cursor: pointer;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        @media(max-width : 433px) {
+            .calc_heading {
+                font-size: 6rem;
+                width: max-content;
+                text-align: center;
+                padding-top: 2.3rem;
+                padding-bottom: 2.3rem;
+                background-color: rgb(228, 156, 46);
+                color: #fff;
+                font-size: 5rem;
+                margin-top: -1rem;
+                margin-right: 100%;
+                margin-left: -1rem;
+                padding-left: 98%;
+                padding-right: 140%;
+            }
+
+            #id12 {
+                width: max-content;
+                margin-left: 30rem;
+                font-size: 3.75rem;
+
+            }
+
+            #cy1 {
+                width: max-content;
+                margin-left: 89rem;
+                margin-bottom: -9.5%;
+            }
+
+            #id16 {
+                width: max-content;
+                width: max-content;
+                margin-left: 19rem;
+                margin-top: 1rem;
+            }
+
+            #b2 {
+                margin-left: 26rem;
+                margin-right: 20rem;
+            }
+
+            #tb1 {
+                margin-right: 18rem;
+                width: max-content;
+            }
+
+            th,
+            td {
+                margin-left: 50%;
+            }
+        }
+
+        @media(max-width : 825px) and (min-width : 435px) {
+            .calc_heading {
+                font-size: 6rem;
+                width: max-content;
+                text-align: center;
+                padding-top: 2.3rem;
+                padding-bottom: 2.3rem;
+                background-color: rgb(228, 156, 46);
+                color: #fff;
+                font-size: 5rem;
+                margin-top: -1rem;
+                margin-right: 100%;
+                margin-left: -1rem;
+                padding-left: 98%;
+                padding-right: 140%;
+            }
+
+            #id12 {
+                width: max-content;
+                margin-left: 52rem;
+                font-size: 3.75rem;
+
+            }
+
+            #cy1 {
+                width: max-content;
+                margin-left: 110rem;
+                margin-bottom: -6.5%;
+            }
+
+            #id16 {
+                width: max-content;
+                width: max-content;
+                margin-left: 19rem;
+                margin-top: 1rem;
+            }
+
+            #b2 {
+                margin-left: 26rem;
+                margin-right: 20rem;
+            }
+
+            #tb1 {
+                margin-right: 18rem;
+                width: max-content;
+            }
+
+            th,
+            td {
+                margin-left: 50%;
+            }
+
+            #id11 {
+                margin-left: 59%;
+                margin-top: 9%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--<img src="img.jpg" alt="img" id="img" height="150%" width="90%">
+    <img src="img.jpg" alt="img" class="img" id="img">-->
+    <h2 class="calc_heading">SGPA CALCULATOR</h2>
+    <form action="action.php" onsubmit="return subkit()" method="post">
+        <span>
+            <h4 id="id12"> select your semister </h4>
+            <h4 id="cy1">select your cycle </h4>
+        </span>
+        <div id="id11"> <span id="id9">
+                <label for="id1">
+                    <input type="radio" name="sem" value="semister1" id="id1">sem I
+                </label>
+                <label for="id3">
+                    <input type="radio" name="sem" value="semister3" id="id3">sem III
+                </label>
+                <label for="id5">
+                    <input type="radio" name="sem" value="semister5" id="id5">sem V
+                </label>
+                <label for="id7">
+                    <input type="radio" name="sem" value="semister7" id="id7">sem VII
+                </label>
+            </span>
+
+            <span id="id16">
+                <label for="id14">
+                    <input type="radio" name="cycle" value="phy" id="id14">physics </label>
+                <label for="id15">
+                    <input type="radio" name="cycle" value="che" id="id15">chemistry
+
+            </span>
+            <br>
+            <span id="id10">
+
+                <label for="id2">
+                    <input type="radio" name="sem" value="semister2" id="id2">sem II
+                </label>
+
+                <label for="id4">
+                    <input type="radio" name="sem" value="semister4" id="id4">sem IV
+                </label>
+                <label for="id6">
+                    <input type="radio" name="sem" value="semister6" id="id6">sem VI
+                </label>
+                <label for="id8">
+                    <input type="radio" name="sem" value="semister8" id="id8">sem VIII
+                </label>
+            </span>
+            </label> <button id="b2" onclick="semi()">click</button>
+            </br>
+
+            <button id="b1" onclick="clik()">click</button>
+
+            <br>
+            <table id="tb1">
+                <tr>
+                    <th id="subhead">
+                        SUBJECT
+                    </th>
+                    <th id="intmark1">
+                        Internal Marks
+                    </th>
+                    <th id="extmark1">
+                        External Marks
+                    </th>
+                    <th id="cr1">
+                        Subject Credit
+                    </th>
+                </tr>
+                <tr>
+                    <td id="sub1"> Subject 1</td>
+                    <td><input class="int1" name="sub1" id="ip11" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" name="sub1" id="ip12" type="number" min="0" max="50"></td>
+                    <td id="ip13"><input id="ip17" name="sub1" class="credit1" type="number" min="1" max="4" />
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub2"> Subject 2</td>
+                    <td><input class="int1" id="ip21" name="sub2" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip22" name="sub2" type="number" min="0" max="50"></td>
+                    <td id="ip23"><input id="ip27" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub3">Subject 3</td>
+                    <td><input class="int1" id="ip31" name="sub3" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip32" name="sub3" type="number" min="0" max="50"></td>
+                    <td id="ip33"><input id="ip37" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub4">Subject 4</td>
+                    <td><input class="int1" id="ip41" name="sub4" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip42" name="sub4" type="number" min="0" max="50"></td>
+                    <td id="ip43"><input id="ip47" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub5">Subject 5</td>
+                    <td><input class="int1" id="ip51" name="sub1" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip52" name="sub1" type="number" min="0" max="50"></td>
+                    <td id="ip53"><input id="ip57" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub6">Subject 6</td>
+                    <td><input class="int1" id="ip61" name="sub1" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip62" name="sub1" type="number" min="0" max="50"></td>
+                    <td id="ip63"><input id="ip67" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="sub7">Subject 7</td>
+                    <td><input class="int1 " id="ip71" name="sub1" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip72" name="sub1" type="number" min="0" max="50"></td>
+                    <td id="ip73"><input id="ip77" name="sub1" class="credit1" type="number" min="1" max="4">
+                </tr>
+                <tr>
+                    <td id="sub8">Subject 8</td>
+                    <td><input class="int1 " id="ip81" name="sub1" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip82" name="sub1" type="number" min="0" max="50"></td>
+                    <td id="ip83"><input id="ip87" name="sub1" class="credit1" type="number" min="1" max="4">
+                </tr>
+                <tr>
+                    </td>
+                    <td id="sub9">Subject 9</td>
+                    <td><input class="int1 " id="ip91" name="sub1" type="number" min="0" max="50"></td>
+                    <td><input class="ext1" id="ip92" name="sub1" type="number" min="0" max="50"></td>
+                    <td id="ip93"><input id="ip97" name="sub1" class="credit1" type="number" min="1" max="4">
+                    </td>
+                </tr>
+
+                </tr>
+            </table>
+            <br>
+            <button id="reset" onclick="location.reload()">Reset</button>
+
+            <button id="submit1" type="submit" value="submit" onclick="subkit1()"> Submit</button>
+            <table id="tb2">
+                <tr>
+                    <th id="result1">RESULT</th>
+                    <td id="pass1"><span id="pass2"></span></td>
+                </tr>
+                <tr>
+                    <th id="sgpa2">
+                        SGPA
+                    </th>
+                    <td id="sgpa1"></td>
+                </tr>
+            </table>
+    </form>
+    </div>
+</body>
+<script>
+    function subkit() {
+        return false;
+    }
+    function clik() {
+        inputSem = document.querySelector('input[name="sem"]:checked').value;
+
+        if (inputSem == 'semister1' || inputSem == 'semister2') {
+            document.getElementById('id16').style.visibility = "visible";
+            document.getElementById('cy1').style.visibility = "visible";
+            document.getElementById('b2').style.visibility = "visible";
+            document.getElementById('tb1').style.visibility = "hidden";
+            document.getElementById('cr1').style.visibility = "hidden";
+            document.getElementById('ip13').style.visibility = "hidden";
+            document.getElementById('ip23').style.visibility = "hidden";
+            document.getElementById('ip33').style.visibility = "hidden";
+            document.getElementById('ip43').style.visibility = "hidden";
+            document.getElementById('ip53').style.visibility = "hidden";
+            document.getElementById('ip63').style.visibility = "hidden";
+            document.getElementById('ip73').style.visibility = "hidden";
+            document.getElementById('ip83').style.visibility = "hidden";
+            document.getElementById('ip93').style.visibility = "hidden";
+            document.getElementById('submit1').style.visibility = "hidden";
+            document.getElementById('tb2').style.visibility = 'hidden';
+            document.getElementById('tb2').style.marginLeft = "15rem"
+
+        } else {
+            document.getElementById('b2').style.visibility = "hidden";
+            document.getElementById('id16').style.visibility = "hidden";
+            document.getElementById('cy1').style.visibility = "hidden";
+            document.getElementById('submit1').style.visibility = "visible";
+            document.getElementById('tb1').style.visibility = "visible";
+            document.getElementById('cr1').style.visibility = "visible";
+            document.getElementById('ip13').style.visibility = "visible";
+            document.getElementById('ip33').style.visibility = "visible";
+            document.getElementById('ip43').style.visibility = "visible";
+            document.getElementById('ip53').style.visibility = "visible";
+            document.getElementById('ip63').style.visibility = "visible";
+            document.getElementById('ip73').style.visibility = "visible";
+            document.getElementById('ip23').style.visibility = "visible";
+            document.getElementById('ip83').style.visibility = "visible";
+            document.getElementById('ip93').style.visibility = "visible";
+            document.getElementById('b1').style.visibility = "hidden";
+            document.getElementById('tb1').style.marginLeft = "80px";
+            document.getElementById('reset').style.visibility = "visible";
+            document.getElementById('tb2').style.visibility = 'hidden';
+            document.getElementById('tb2').style.marginLeft = "18rem"
+        }
+    }
+
+    function semi() {
+        var inputCyc = document.querySelector('input[name="cycle"]:checked').value;
+
+        if (inputCyc == 'phy' || 'chem') {
+            document.getElementById('b1').style.visibility = "hidden";
+            document.getElementById('tb1').style.visibility = "visible";
+            document.getElementById('tb2').style.visibility = "visible";
+            document.getElementById('tb1').style.paddingLeft = "100px";
+            document.getElementById('tb1').style.marginLeft = "45px";
+            document.getElementById('tb1').style.marginTop = "40px";
+            document.getElementById('reset').style.visibility = "visible";
+            document.getElementById('tb2').style.visibility = 'hidden';
+            document.getElementById('ip13').style.visibility = "hidden";
+            document.getElementById('ip23').style.visibility = "hidden";
+            document.getElementById('ip33').style.visibility = "hidden";
+            document.getElementById('ip43').style.visibility = "hidden";
+            document.getElementById('ip53').style.visibility = "hidden";
+            document.getElementById('ip63').style.visibility = "hidden";
+            document.getElementById('ip73').style.visibility = "hidden";
+            document.getElementById('ip83').style.visibility = "hidden";
+            document.getElementById('ip93').style.visibility = "hidden";
+        }
+        if (inputCyc == 'phy') {
+            document.getElementById('sub1').innerHTML = "MATHEMATICS";
+            document.getElementById('sub2').innerHTML = "PHYSICS";
+            document.getElementById('sub3').innerHTML = "ELECTRICAL";
+            document.getElementById('sub4').innerHTML = "CIVIL";
+            document.getElementById('sub5').innerHTML = "VISUALISATION";
+            document.getElementById('sub6').innerHTML = "ENGLISH";
+            document.getElementById('sub7').innerHTML = "IDT";
+            document.getElementById('sub8').innerHTML = "PHYSICS LAB";
+            document.getElementById('sub9').innerHTML = "ELECTRICAL LAB";
+            document.getElementById('submit1').style.visibility = "visible";
+        } else {
+            document.getElementById('sub1').innerHTML = "MATHEMATICS";
+            document.getElementById('sub2').innerHTML = "CHEMISTRY";
+            document.getElementById('sub3').innerHTML = "PSP";
+            document.getElementById('sub4').innerHTML = "ELECTRONICS";
+            document.getElementById('sub5').innerHTML = "MECHANICAL";
+            document.getElementById('sub6').innerHTML = " ENGLISH";
+            document.getElementById('sub7').innerHTML = "SFH";
+            document.getElementById('sub8').innerHTML = "CHEMISTRY LAB";
+            document.getElementById('sub9').innerHTML = "PSP LAB";
+            document.getElementById('submit1').style.visibility = "visible";
+        }
+    }
+
+    function subkit1() {
+        var a1 = parseInt(document.getElementById('ip11').value);
+        var a2 = parseInt(document.getElementById('ip12').value);
+        var a3 = parseInt(document.getElementById('ip17').value);
+
+        var b1 = parseInt(document.getElementById('ip21').value);
+        var b2 = parseInt(document.getElementById('ip22').value);
+        var b3 = parseInt(document.getElementById('ip27').value);
+
+        var c1 = parseInt(document.getElementById('ip31').value);
+        var c2 = parseInt(document.getElementById('ip32').value);
+        var c3 = parseInt(document.getElementById('ip37').value);
+
+        var d1 = parseInt(document.getElementById('ip41').value);
+        var d2 = parseInt(document.getElementById('ip42').value);
+        var d3 = parseInt(document.getElementById('ip47').value);
+
+        var e1 = parseInt(document.getElementById('ip51').value);
+        var e2 = parseInt(document.getElementById('ip52').value);
+        var e3 = parseInt(document.getElementById('ip57').value);
+
+        var f1 = parseInt(document.getElementById('ip61').value);
+        var f2 = parseInt(document.getElementById('ip62').value);
+        var f3 = parseInt(document.getElementById('ip67').value);
+
+        var g1 = parseInt(document.getElementById('ip71').value);
+        var g2 = parseInt(document.getElementById('ip72').value);
+        var g3 = parseInt(document.getElementById('ip77').value);
+
+        var h1 = parseInt(document.getElementById('ip81').value);
+        var h2 = parseInt(document.getElementById('ip82').value);
+        var h3 = parseInt(document.getElementById('ip87').value);
+
+        var i1 = parseInt(document.getElementById('ip91').value);
+        var i2 = parseInt(document.getElementById('ip92').value);
+        var i3 = parseInt(document.getElementById('ip97').value);
+        inputSem = document.querySelector('input[name="sem"]:checked').value;
+
+        if (inputSem == 'semister1' || inputSem == 'semister2') {
+
+            var a4 = totm(a1, a2);
+            var b4 = totm(b1, b2);
+            var c4 = totm(c1, c2);
+            var d4 = totm(d1, d2);
+            var e4 = totm(e1, e2);
+            var f4 = totm(f1, f2);
+            var g4 = totm(g1, g2);
+            var h4 = totm(h1, h2);
+            var i4 = totm(i1, i2);
+
+            var a5 = total(a4);
+            var b5 = total(b4);
+            var c5 = total(c4);
+            var d5 = total(d4);
+            var e5 = total(e4);
+            var f5 = total(f4);
+            var g5 = total(g4);
+            var h5 = total(h4);
+            var i5 = total(i4);
+
+            var final1 = ((((a5 + b5 + c5 + d5 + e5) * 3 + (f5 * 2) + ((g5 + h5 + i5) * 1)) / 200) * 10);
+            var sf1 = final1.toFixed(2);
+            document.getElementById('tb2').style.visibility = "hidden";
+
+            document.getElementById('sgpa1').innerHTML = sf1;
+
+        } else if (inputSem == 'semister3' || inputSem == 'semister4' || inputSem == 'semister5' || inputSem == 'semister6' || inputSem == 'semister7' || inputSem == 'semister8') {
+            var a4 = totm(a1, a2);
+            var b4 = totm(b1, b2);
+            var c4 = totm(c1, c2);
+            var d4 = totm(d1, d2);
+            var e4 = totm(e1, e2);
+            var f4 = totm(f1, f2);
+            var g4 = totm(g1, g2);
+            var h4 = totm(h1, h2);
+            var i4 = totm(i1, i2);
+
+            var a5 = total(a4);
+            var b5 = total(b4);
+            var c5 = total(c4);
+            var d5 = total(d4);
+            var e5 = total(e4);
+            var f5 = total(f4);
+            var g5 = total(g4);
+            var h5 = total(h4);
+            var i5 = total(i4);
+
+            var final2 = ((a5 * a3 + b5 * b3 + c5 * c3 + d5 * d3 + e5 * e3 + f5 * f3 + g5 * g3 + h5 * h3 + i5 * i3) / (a3 + b3 + c3 + d3 + e3 + f3 + g3 + h3 + i3));
+
+            var sf2 = final2.toFixed(2);
+            document.getElementById('tb2').style.visibility = "hidden";
+            document.getElementById('sgpa1').innerHTML = sf2;
+        }
+
+        while (a1 > 50 || b1 > 50 || c1 > 50 || d1 > 50 || e1 > 50 || f1 > 50 || g1 > 50 || h1 > 50 || i1 > 50) {
+            alert("IA marks must be less than or equal to 50 ");
+            return 0;
+        } while (a2 > 50 || b2 > 50 || c2 > 50 || d2 > 50 || e2 > 50 || f2 > 50 || g2 > 50 || h2 > 50 || i2 > 50) {
+            alert("EXTERNAL marks must be less than or equal to 50 ");
+            return 0;
+        } while (a3 > 4 || b3 > 4 || c3 > 4 || d3 > 4 || e3 > 4 || f3 > 4 || g3 > 4 || h3 > 4 || i3 > 4) {
+            alert("SUBJECT CREDIT must be less than or equal to 4 ");
+            return 0;
+        }
+        if (document.getElementById('ip11').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip21').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip31').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip41').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip51').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip61').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip71').value == "") {
+            alert("Please Enter The IA MARKS");
+            return 0;
+        } else if (document.getElementById('ip12').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip22').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip32').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip42').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip52').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip62').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip72').value == "") {
+            alert("Please Enter The EXTERNAL MARKS");
+            return 0;
+        } else if (document.getElementById('ip13').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip23').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip33').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip43').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip53').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip63').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        } else if (document.getElementById('ip73').value == "") {
+            alert("Please Enter The SUBJECT CREDIT ");
+            return 0;
+        }
+
+        colorchange('sub1', a1, a2);
+        colorchange('ip11', a1, a2);
+        colorchange('ip12', a1, a2);
+        colorchange('ip17', a1, a2);
+
+        colorchange('sub2', b1, b2);
+        colorchange('ip21', b1, b2);
+        colorchange('ip22', b1, b2);
+        colorchange('ip27', b1, b2);
+
+        colorchange('sub3', c1, c2);
+        colorchange('ip31', c1, c2);
+        colorchange('ip32', c1, c2);
+        colorchange('ip37', c1, c2);
+
+        colorchange('sub4', d1, d2);
+        colorchange('ip41', d1, d2);
+        colorchange('ip42', d1, d2);
+        colorchange('ip47', d1, d2);
+
+        colorchange('sub5', e1, e2);
+        colorchange('ip51', e1, e2);
+        colorchange('ip52', e1, e2);
+        colorchange('ip57', e1, e2);
+
+        colorchange('sub6', f1, f2);
+        colorchange('ip61', f1, f2);
+        colorchange('ip62', f1, f2);
+        colorchange('ip67', f1, f2);
+
+        colorchange('sub7', g1, g2);
+        colorchange('ip71', g1, g2);
+        colorchange('ip72', g1, g2);
+        colorchange('ip77', g1, g2);
+
+        colorchange('sub8', h1, h2);
+        colorchange('ip81', h1, h2);
+        colorchange('ip82', h1, h2);
+        colorchange('ip87', h1, h2);
+
+        colorchange('sub9', i1, i2);
+        colorchange('ip91', i1, i2);
+        colorchange('ip92', i1, i2);
+        colorchange('ip97', i1, i2);
+
+        if ((a1 < 22 || b1 < 22 || c1 < 22 || d1 < 22 || e1 < 22 || f1 < 22 || g1 < 22 || h1 < 22 || i1 < 22 || a2 < 18 || b2 < 18 || c2 < 18 || d2 < 18 || e2 < 18 || f2 < 18 || g2 < 18 || h2 < 18 || i2 < 18)) {
+            document.getElementById('tb2').style.visibility = "visible";
+            document.getElementById('pass2').innerHTML = "FAIL";
+            document.getElementById('pass1').style.backgroundColor = "#c9302c";
+            document.getElementById('result1').style.backgroundColor = "#c9302c";
+            document.getElementById('sgpa1').style.backgroundColor = "#c9302c";
+            document.getElementById('sgpa2').style.backgroundColor = "#c9302c";
+        }
+
+        else {
+            document.getElementById('tb2').style.visibility = "visible";
+            document.getElementById('pass2').innerHTML = "PASS";
+            document.getElementById('pass1').style.backgroundColor = "#5cb85c";
+            document.getElementById('result1').style.backgroundColor = "#5cb85c";
+            document.getElementById('sgpa1').style.backgroundColor = "#5cb85c";
+            document.getElementById('sgpa2').style.backgroundColor = "#5cb85c";
+        }
+
+    }
+    function total(sum1) {
+
+        if (sum1 >= 90 && sum1 <= 100) {
+            var grade = 10;
+        } else if (sum1 >= 80 && sum1 < 90) {
+            var grade = 9;
+        } else if (sum1 >= 70 && sum1 < 80) {
+            var grade = 8;
+        } else if (sum1 >= 60 && sum1 < 70) {
+            var grade = 7;
+        } else if (sum1 >= 55 && sum1 < 60) {
+            var grade = 6;
+        } else if (sum1 >= 50 && sum1 < 55) {
+            var grade = 6;
+        } else if (sum1 >= 40 && sum1 < 49) {
+            var grade = 4;
+        } else {
+            var grade = 0;
+        }
+        return grade;
+    }
+    function totm(x, y) {
+        if (x < 22 || y < 18) {
+            t = 0;
+        } else {
+            t = x + y;
+        }
+        return t;
+    }
+    function zerograde(z1, z2) {
+        if (z1 < 22 || z2 < 18) {
+            var z3 = 0;
+            return z3;
+        }
+    }
+    function colorchange(subj, gr, gr1) {
+        if (gr < 22 || gr1 < 18) {
+            document.getElementById(subj).style.color = "#c9302c";
+        } else {
+            document.getElementById(subj).style.color = "black";
+        }
+    }
+</script>
+
+</html>
